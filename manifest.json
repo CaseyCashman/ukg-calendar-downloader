@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "UKG Calendar Grabber",
+  "version": "2.0.0",
+
+  "description": "Adds button to save ICS file from UKG schedule page",
+
+  "icons": {},
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ukgcalendar@example.com",
+      "strict_min_version": "58.0"
+    },
+    "gecko_android": {}
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://kwiktrip-sso.prd.mykronos.com/*",
+        "https://kwiktrip-sso.prd.mykronos.com/ess#/"
+        ],
+      "js": ["make-cal.js"]
+    }
+  ]
+}
+  
