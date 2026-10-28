@@ -6,7 +6,7 @@ function GetEvents() {
         console.log("got event date elements:", event_date_elements)
 
         if (event_date_elements.length == 0) {
-            alert("Error: Unable to download calendar. No events found on page")
+            alert("Could not find events to download. Try expanding the events list on the right side of the page")
             return []
         }
 
@@ -188,9 +188,12 @@ async function addButtonWhenReady(dl_button){
 /** Document ready */
 document.addEventListener("readystatechange", () => {
     if (document.readyState == "complete") {
+        // Create download button
         const dl_button = document.createElement("button");
-        dl_button.id = "dl-button"
+        dl_button.id = "dl-button";
         dl_button.innerText = "Download ICS";
+
+        // Style download button
         let cssText = `
         #dl-button {
             background: var(--zed_sys_color_action_enabled);
@@ -206,14 +209,11 @@ document.addEventListener("readystatechange", () => {
             background: var(--zed_sys_color_action_hover)
         }`
         var style = document.createElement('style');
-
-        if (style.styleSheet) {
-            style.styleSheet.cssText = cssText;
-        } else {
-            style.appendChild(document.createTextNode(cssText));
-        }
+        if (style.styleSheet) {style.styleSheet.cssText = cssText;}
+        else {style.appendChild(document.createTextNode(cssText));}
         document.getElementsByTagName('head')[0].appendChild(style);
 
+        // Make download button clickable
         dl_button.addEventListener("click", function () {
             let events = GetEvents()
             console.log("Events list:", events)

@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "UKG Calendar Grabber",
-  "version": "2.0.0",
+  "name": "UKG Calendar Downloader",
+  "version": "2.0.1",
 
-  "description": "Adds button to save ICS file from UKG schedule page",
+  "description": "Save calendars as ICS files from UKG schedule page.",
 
   "icons": {},
 
